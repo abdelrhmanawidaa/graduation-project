@@ -1,0 +1,45 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'page1/css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'page1/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'page1/css/style.css' %}" rel="stylesheet">
+    
+    <title>Retin Scan</title>
+</head>
+<body>
+    <!-- section Retin Scan -->
+    <section class="sec1">
+        <div class="container box-cont">
+
+            <!--Content description for the feature -->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+            <div class="content text-center">
+                <div class="cont-words">
+                    <h1 class="title-larg">Submit your Retina Scan</h1>
+                    <p class="title-s"> Upload jpg or png Format.</p>
+                </div>
+                <!-- button to upload the rays and then submit it  -->
+
+                <div class="buttons">
+                    <input  class="upl-button  " type="file" id="myFile" name="image">
+                    <label for="myFile" class="text-btn1"><i class=" fa-solid fa-upload"></i> Upload Photo</label>
+                    <div class="text-btn2"><input class="sub-button btn btn-dark"  type="submit"></div>
+                </div>
+            </form>
+
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+    
+</body>
+</html>

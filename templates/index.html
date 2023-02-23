@@ -1,0 +1,218 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Diagnosis</title>
+    <link href="{% static 'page2/css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'page2/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'page2/css/style.css' %}">
+</head>
+<body>
+    <div class="sec1">
+        <div class="container box-cont"> 
+            <div class="text-center main-p">
+                <h2>Answers the following Questions</h2>
+            </div> 
+            <form action="{% url 'early-result' %}" >
+                {% csrf_token %}
+
+                <div class="qs">
+                    <p class="main-q">- Age? </p>
+                    <input type="number" id="quantity" name="quantity" min="0" max="100" required>
+                </div>
+                <div class="qs">
+                    <p class="main-q">- Male or female? </p>
+                    <div>
+                        <input type="radio" name="cho0" value="1" id="0" required>
+                        <lable for="0">Male</lable> 
+                    </div>
+                    <div>
+                        <input type="radio" name="cho0" value="0" id="00"required>
+                        <lable for="00">female</lable> 
+                    </div>
+    
+                </div>
+            <div class="qs" >
+                <p class="main-q"> -Do you suffer from frequent urination? </p>
+                <div>
+                    <input type="radio" name="cho" value="1" id="1" required>
+                    <lable for="1">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho" value="0" id="2"required>
+                    <lable for="2">No</lable> 
+                </div>
+
+            </div>
+
+            <div class="qs">
+                <p class="main-q"> -Do you suffer from increased thirst?  </p>
+                <div>
+                    <input type="radio" name="cho1" value="1" id="3" required>
+                    <lable for="3">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho1" value="0" id="4" required>
+                    <lable for="4">No</lable> 
+                </div>
+
+            </div>
+
+            <div class="qs">
+                <p class="main-q"> -Did you experience sudden weight loss?  </p>
+                <div>
+                    <input type="radio" name="cho2" value="1" id="5" required>
+                    <lable for="5">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho2" value="0" id="6" required>
+                    <lable for="6">No</lable> 
+                </div>
+
+            </div>
+            <div class="qs">
+                <p class="main-q"> -Do you experience episodes of feeling weak?  </p>
+                <div>
+                    <input type="radio" name="cho3" value="1" id="7" required>
+                    <lable for="7">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho3" value="0" id="8" required>
+                    <lable for="8">No</lable> 
+                </div>
+
+            </div>
+            <div class="qs">
+                <p class="main-q"> -Do you feel extreme/ excessive hunger?  </p>
+                <div>
+                    <input type="radio" name="cho4" value="1" id="9" required>
+                    <lable for="9">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho4" value="0" id="10" required>
+                    <lable for="10">No</lable> 
+                </div>
+
+            </div>
+            <div class="qs">
+                <p class="main-q"> -Did you have yeast infection? </p>
+                <div>
+                    <input type="radio" name="cho5" value="1" id="11" required>
+                    <lable for="11">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho5" value="0" id="12" required>
+                    <lable for="12">No</lable> 
+                </div>
+
+            </div>
+            <div class="qs">
+                <p class="main-q">-Do you experience blurred vision? </p>
+                <div>
+                    <input type="radio" name="cho6" value="1" id="13" required>
+                    <lable for="13">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho6" value="0" id="14" required>
+                    <lable for="14">No</lable> 
+                </div>
+
+            </div>
+
+            <div class="qs">
+                <p class="main-q">- Do you experience itching? </p>
+                <div>
+                    <input type="radio" name="cho7" value="1" id="15" required>
+                    <lable for="15">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho7" value="0" id="16" required>
+                    <lable for="16">No</lable> 
+                </div>
+
+            </div>
+            <div class="qs">
+                <p class="main-q">- Do you experience irritability?  </p>
+                <div>
+                    <input type="radio" name="cho8" value="1" id="17" required>
+                    <lable for="17">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho8" value="0" id="18" required>
+                    <lable for="18">No</lable> 
+                </div>
+            </div>
+                <div class="qs">
+                    <p class="main-q">- Did you notice delayed healing when wounded?  </p>
+                    <div>
+                        <input type="radio" name="cho9" value="1" id="19" required>
+                        <lable for="19">Yes</lable> 
+                    </div>
+                    <div>
+                        <input type="radio" name="cho9" value="0" id="20" required>
+                        <lable for="20">No</lable> 
+                    </div>
+            </div>
+
+            <div class="qs">
+                <p class="main-q">- Did you experience weakening of a muscle or group of muscles? </p>
+                <div>
+                    <input type="radio" name="cho11" value="1" id="21" required>
+                    <lable for="21">Yes</lable> 
+                </div>
+                <div>
+                    <input type="radio" name="cho11" value="0" id="22" required>
+                    <lable for="22">No</lable> 
+                </div>
+        </div>
+
+
+        <div class="qs">
+            <p class="main-q">- Do you experience muscle stiffness?  </p>
+            <div>
+                <input type="radio" name="cho12" value="1" id="23" required>
+                <lable for="23">Yes</lable> 
+            </div>
+            <div>
+                <input type="radio" name="cho12" value="0" id="24" required>
+                <lable for="24">No</lable> 
+            </div>
+    </div>
+
+
+    <div class="qs">
+        <p class="main-q">- Did you experience hair loss?  </p>
+        <div>
+            <input type="radio" name="cho13" value="1" id="25" required>
+            <lable for="25">Yes</lable> 
+        </div>
+        <div>
+            <input type="radio" name="cho13" value="0" id="26" required>
+            <lable for="26">No</lable> 
+        </div>
+</div>
+
+
+<div class="qs">
+    <p class="main-q">- Are you considered obese?  </p>
+    <div>
+        <input type="radio" name="cho14" value="1" id="27" required>
+        <lable for="27">Yes</lable> 
+    </div>
+    <div>
+        <input type="radio" name="cho14" value="0" id="28" required >
+        <lable for="28">No</lable> 
+    </div>
+</div>
+
+
+            <div class="text-center ">
+                <input class="sub-button btn btn-dark"  type="submit" value="Submit">
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
