@@ -4,12 +4,10 @@ import os
 import cv2
 #import PIL
 import numpy as np
-
 import tensorflow as tf
 from django.conf import settings
 from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
-
 from django.core.files.storage import FileSystemStorage
 
 
@@ -20,7 +18,12 @@ class CustomFileSystemStorage(FileSystemStorage):
     
 
 
-
+"""
+1. The scan function is the main function which is called when the user submits the form.
+2. The image is read and passed to the model.
+3. The model returns the prediction.
+4. The prediction is then passed to the template as a context variable.
+5. The template then displays the result. """
 
 def scan(request):
     message = ""
@@ -97,24 +100,33 @@ def scan(request):
 def home(request):
     return render(request,'index.html')
     
-def result(request):
-    quantity = int(request.GET['quantity'])
-    cho0 = int(request.GET['cho0'])
-    cho = int(request.GET['cho'])
-    cho1 = int(request.GET['cho1'])
-    cho2 = int(request.GET['cho2'])
-    cho3 = int(request.GET['cho3'])
-    cho4 = int(request.GET['cho4'])
-    cho5 = int(request.GET['cho5'])
-    cho6 = int(request.GET['cho6'])
-    cho7 = int(request.GET['cho7'])
-    cho8 = int(request.GET['cho8'])
-    cho9 = int(request.GET['cho9'])
-    cho11 = int(request.GET['cho11'])
-    cho12 = int(request.GET['cho12'])
-    cho13 = int(request.GET['cho13'])
-    cho14 = int(request.GET['cho14'])
 
+    """ This code does the following:
+1. Takes the input from the form
+2. Passes the input to the model
+3. Renders the result and a message """
+
+def result(request):
+    if request.method == 'POST':
+        quantity = int(request.POST['quantity'])
+        cho0 = int(request.POST['cho0'])
+        cho = int(request.POST['cho'])
+        cho1 = int(request.POST['cho1'])
+        cho2 = int(request.POST['cho2'])
+        cho3 = int(request.POST['cho3'])
+        cho4 = int(request.POST['cho4'])
+        cho5 = int(request.POST['cho5'])
+        cho6 = int(request.POST['cho6'])
+        cho7 = int(request.POST['cho7'])
+        cho8 = int(request.POST['cho8'])
+        cho9 = int(request.POST['cho9'])
+        cho11 = int(request.POST['cho11'])
+        cho12 = int(request.POST['cho12'])
+        cho13 = int(request.POST['cho13'])
+        cho14 = int(request.POST['cho14'])
+    else:
+        return render(request, 'early-result.html', {'result':'Something went wrong'})
+    
     #result = predictions.getPredictions(int(request.GET['quantity']),int(request.GET['cho0']),int(request.GET['cho']),int(request.GET['cho1']),int(request.GET['cho2']),int(request.GET['cho3']),int(request.GET['cho4']),int(request.GET['cho5']),int(request.GET['cho6']),int(request.GET['cho7']),int(request.GET['cho8']),int(request.GET['cho9']),int(request.GET['cho11']),int(request.GET['cho12']),int(request.GET['cho13']),int(request.GET['cho14']))
     result = predictions.getPredictions(quantity,cho,cho0,cho1,cho2,cho3,cho4,cho5,cho6,cho7,cho8,cho9,cho11,cho12,cho13,cho14)
     if (result == "You don't have diabetes"):
