@@ -107,33 +107,33 @@ def home(request):
 3. Renders the result and a message """
 
 def result(request):
-    if request.method == 'POST':
-        quantity = int(request.POST['quantity'])
-        cho0 = int(request.POST['cho0'])
-        cho = int(request.POST['cho'])
-        cho1 = int(request.POST['cho1'])
-        cho2 = int(request.POST['cho2'])
-        cho3 = int(request.POST['cho3'])
-        cho4 = int(request.POST['cho4'])
-        cho5 = int(request.POST['cho5'])
-        cho6 = int(request.POST['cho6'])
-        cho7 = int(request.POST['cho7'])
-        cho8 = int(request.POST['cho8'])
-        cho9 = int(request.POST['cho9'])
-        cho11 = int(request.POST['cho11'])
-        cho12 = int(request.POST['cho12'])
-        cho13 = int(request.POST['cho13'])
-        cho14 = int(request.POST['cho14'])
-    else:
-        return render(request, 'early-result.html', {'result':'Something went wrong'})
-    
-    #result = predictions.getPredictions(int(request.GET['quantity']),int(request.GET['cho0']),int(request.GET['cho']),int(request.GET['cho1']),int(request.GET['cho2']),int(request.GET['cho3']),int(request.GET['cho4']),int(request.GET['cho5']),int(request.GET['cho6']),int(request.GET['cho7']),int(request.GET['cho8']),int(request.GET['cho9']),int(request.GET['cho11']),int(request.GET['cho12']),int(request.GET['cho13']),int(request.GET['cho14']))
-    result = predictions.getPredictions(quantity,cho,cho0,cho1,cho2,cho3,cho4,cho5,cho6,cho7,cho8,cho9,cho11,cho12,cho13,cho14)
-    if (result == "You don't have diabetes"):
-        message = "we're happy to inform you that "
-    else:
-        message = "we're sad to inform you that"
-    
-    print(quantity,cho,cho0,cho1,cho2,cho3,cho4,cho5,cho6,cho7,cho8,cho9,cho11,cho12,cho13,cho14)
-    print("result:::::",result)
-    return render(request, 'early-result.html', {'result':result,'message':message})
+        if request.method == 'POST':
+            quantity = float(request.POST['quantity'])
+            cho0 = int(request.POST['cho0'])
+            cho = int(request.POST['cho'])
+            cho1 = int(request.POST['cho1'])
+            cho2 = int(request.POST['cho2'])
+            cho3 = int(request.POST['cho3'])
+            cho4 = int(request.POST['cho4'])
+            cho5 = int(request.POST['cho5'])
+            cho6 = int(request.POST['cho6'])
+            cho7 = int(request.POST['cho7'])
+            cho8 = int(request.POST['cho8'])
+            cho9 = int(request.POST['cho9'])
+            cho11 = int(request.POST['cho11'])
+            cho12 = int(request.POST['cho12'])
+            cho13 = int(request.POST['cho13'])
+            cho14 = int(request.POST['cho14'])
+        else:
+            return render(request, 'early-result.html', {'result':'Something went wrong'})
+
+        #result = predictions.getPredictions(int(request.GET['quantity']),int(request.GET['cho0']),int(request.GET['cho']),int(request.GET['cho1']),int(request.GET['cho2']),int(request.GET['cho3']),int(request.GET['cho4']),int(request.GET['cho5']),int(request.GET['cho6']),int(request.GET['cho7']),int(request.GET['cho8']),int(request.GET['cho9']),int(request.GET['cho11']),int(request.GET['cho12']),int(request.GET['cho13']),int(request.GET['cho14']))
+        result = predictions.getPredictions(quantity,cho,cho0,cho1,cho2,cho3,cho4,cho5,cho6,cho7,cho8,cho9,cho11,cho12,cho13,cho14)
+        if (result == "You don't have diabetes"):
+            message = "we're happy to inform you that "
+        else:
+            message = "we're sad to inform you that"
+        
+        #print(quantity,cho,cho0,cho1,cho2,cho3,cho4,cho5,cho6,cho7,cho8,cho9,cho11,cho12,cho13,cho14)
+        #print("result:::::",result)
+        return render(request, 'early-result.html', {'result':result,'message':message})

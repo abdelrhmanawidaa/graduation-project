@@ -6,7 +6,6 @@
 5. Returns the prediction """
 
 def getPredictions(quantity,cho,cho0,cho1,cho2,cho3,cho4,cho5,cho6,cho7,cho8,cho9,cho11,cho12,cho13,cho14):
-    try:
         import pickle
     
         model = pickle.load(open("dumbs/titanic_survival_ml_model.sav", "rb"))
@@ -19,5 +18,3 @@ def getPredictions(quantity,cho,cho0,cho1,cho2,cho3,cho4,cho5,cho6,cho7,cho8,cho
             return "You have diabetes"
         else:
             return "error"
-    except Exception as e:
-        return str(e)
